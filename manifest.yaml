@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: wheelhouse
+    service: wheelhouse
+  name: wheelhouse
+spec:
+  selector:
+    matchLabels:
+      app: wheelhouse
+      service: wheelhouse
+  template:
+    metadata:
+      labels:
+        app: wheelhouse
+        service: wheelhouse
+      name: wheelhouse
+    spec:
+      containers:
+      - env:
+        # - name: WHEELHOUSE_BASEPATH
+        #   value: /wheelhouse
+        - name: WHEELHOUSE_PORT
+          value: "8091"
+        image: jfcarter2358/wheelhouse:dev-bp
+        imagePullPolicy: Always
+        name: wheelhouse
+        ports:
+        - containerPort: 8091
+          name: wheelhouse-http
+          protocol: TCP
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: "1"
+        stdin: true
+        tty: true
+      hostname: wheelhouse
+      imagePullSecrets:
+      - name: wheelhouse-regcreds
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: wheelhouse
+    service: wheelhouse
+  name: wheelhouse
+spec:
+  ports:
+  - name: wheelhouse-http
+    port: 8091
+    protocol: TCP
+    targetPort: 8091
+  selector:
+    app: wheelhouse
+    service: wheelhouse
+  sessionAffinity: None
+  type: LoadBalancer

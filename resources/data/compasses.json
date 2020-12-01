@@ -1,0 +1,28 @@
+{
+    "compasses": [
+        {
+            "id": "1e0cd040-333b-11eb-80fc-00e04c680e24",
+            "name": "mongodb",
+            "url": "https://wheelhousestorage.blob.core.windows.net/wheel-house/mongodb_3.2.tar.gz",
+            "version": "3.2"
+        },
+        {
+            "id": "01b7b3ae-332e-11eb-b09b-00e04c680e24",
+            "name": "mongodb",
+            "url": "https://wheelhousestorage.blob.core.windows.net/wheel-house/mongodb_3.4.tar.gz",
+            "version": "3.4"
+        },
+        {
+            "id": "236046f8-333b-11eb-bb3d-00e04c680e24",
+            "name": "mongodb",
+            "url": "https://wheelhousestorage.blob.core.windows.net/wheel-house/mongodb_3.6.tar.gz",
+            "version": "3.6"
+        },
+        {
+            "id": "082758ca-332e-11eb-b09b-00e04c680e24",
+            "name": "postgres",
+            "url": "https://wheelhousestorage.blob.core.windows.net/wheel-house/postgres.tar.gz",
+            "version": "1.0"
+        }
+    ]
+}
